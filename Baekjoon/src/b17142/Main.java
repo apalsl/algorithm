@@ -15,7 +15,7 @@ public class Main {
 	static Queue<Bug> queue = new LinkedList<Bug>();	
 	static int[] Dx = {0,1,0,-1};
 	static int[] Dy = {1,0,-1,0};
-	
+	static int MAX_VALUE = 2_000_000_000;
 	static class Bug {
 		int x,y;
 		Bug(int x, int y) {
