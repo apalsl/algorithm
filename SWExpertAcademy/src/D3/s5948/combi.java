@@ -1,6 +1,7 @@
 package D3.s5948;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class combi {
@@ -9,22 +10,25 @@ public class combi {
 	static List<int[]> list2 = new ArrayList<int[]>();
 	public static void main(String[] args) {
 		int[] arr = new int[3];
-		int[] value = {1,2,3,4,5};
+		int[] value = {1,2,1,2};
 		
 		
-		combination(arr, 0, 3, 3, 0);
+//		combination(arr, 0, 3, 3, 0);
 		
-		for(int[] combi : list) {
-			for(int i=0; i<combi.length; i++) {
-				System.out.print(combi[i] + " ");
-			}
-			System.out.println();
-				
-		}
+//		for(int[] combi : list) {
+//			for(int i=0; i<combi.length; i++) { 
+//				System.out.print(value[combi[i]] + " ");
+//			}
+//			System.out.println();
+//				
+//		}
 		
 		System.out.println("-------------------------");
 		
-		perm(value,0,5,5);
+		perm(value,0,4,4);
+		
+		System.out.println(list2.size());
+		System.out.println(list2.get(6));
 		for(int[] per : list2) {
 			for(int i=0; i<per.length; i++) {
 				System.out.print(per[i] + " ");
@@ -33,10 +37,35 @@ public class combi {
 				
 		}
 		
+		String str = "Abc";
+		System.out.println(str.charAt(0));
+		
 	}
+	
+	static HashSet<int[]> set = new HashSet<int[]>();
 	private static void perm(int[] arr, int arrSize, int n, int r) {
 		if(arrSize == r) {
-			list2.add(arr.clone());
+			if(list2.size() == 0) {
+				list2.add(arr.clone());
+			} else {
+				for(int[] per : list2) {
+					for(int i=0; i<per.length; i++) {
+						if(per[i] != arr[i]) break;
+						
+						if(i == per.length-1) {
+							return;
+						}
+					}
+				}
+				
+				list2.add(arr.clone());
+			}
+			 
+			
+//			if(!list2.contains(arr)) {
+				
+//			}
+			
 			return;
 		}
 		
