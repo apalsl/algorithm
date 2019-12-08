@@ -12,7 +12,7 @@ public class t2 {
 		double d = Math.sqrt(n);
 			
 		if( i== d) {
-			return (long)(d+1)*d;
+//			return (long)(d+1)*d;
 		}
 		return -1;
 		
